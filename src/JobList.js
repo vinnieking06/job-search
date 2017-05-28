@@ -14,12 +14,14 @@ class JobList extends React.Component {
             this.setState({jobs: res.data})
       })
     }
-    
+
     render() {
         const jobList = [];
         this.state.jobs.forEach((job, index) => {
             jobList.push(<li key={index}> 
-            <a href="#"><div>{job.job} {job.company} {job.link}</div></a>
+                <Link to={`/job/${job.id}`}>
+                    <div>{job.job} {job.company} {job.link}</div>
+                </Link>
              </li>)
         })
         return (
