@@ -1,16 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './App';
+import Job from './Job'
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import { BrowserRouter, Match, Miss } from 'react-router'
+import { BrowserRouter, Route } from 'react-router-dom';
+
+
 
 const Root = () => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern="/" component={App} />
-        <Match pattern="/job/:jobId" component={Job} />
+        <Route exactly path="/" component={App} />
+        <Route path ="/job/:id" component={Job} />
       </div>
     </BrowserRouter>
   )

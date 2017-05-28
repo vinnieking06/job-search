@@ -1,5 +1,6 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class JobList extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class JobList extends React.Component {
         const jobList = [];
         this.state.jobs.forEach((job, index) => {
             jobList.push(<li key={index}> 
-                <Link to={`/job/${job.id}`}>
+                <Link to={{ pathname: `/job/${job.id}`, state: { job: job } }}>
                     <div>{job.job} {job.company} {job.link}</div>
                 </Link>
              </li>)

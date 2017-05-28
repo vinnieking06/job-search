@@ -1,10 +1,11 @@
 import React from 'react';
-const Info = () => {
+const Info = (props) => {
+    console.log(props)
     return (
         <div>
-            <span>Company: </span>
-            <span>Job Title:</span>
-            <p>Link to posting:</p>
+            <h4>Company: {props.job.company} </h4>
+            <h4>Job Title: {props.job.job}</h4>
+            <p>Link to posting: {props.job.link}</p>
             <button>Log Activity</button>
             <button>Set Follow Up</button>
         </div>
