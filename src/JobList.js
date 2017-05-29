@@ -27,12 +27,14 @@ class JobList extends React.Component {
         })
         return (
             <div className="job-list">
+                <Link to='/createjob'>
+                <button>Create New Job</button>
+               </Link> <h1>Job View</h1>
                 <h2>Job List</h2>
                 <h3>Create New Job</h3>
                 <ul>
                     {jobList}
                 </ul>
-
             </div>
         )
     }

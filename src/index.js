@@ -14,7 +14,6 @@ const Root = () => {
         <Route exact path="/" component={App} />
         <Route path ="/job/:id" component={Job} />
         <Route exact path="/createjob" component={CreateJob} />
-
       </div>
     </BrowserRouter>
   )

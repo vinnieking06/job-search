@@ -20,11 +20,14 @@ const Job = sequelize.define('job', {
       },
       link: {
         type: Sequelize.STRING
+      },
+      notes: {
+        type: Sequelize.STRING
       }
 });
 //creates database I only need this the first 
 // Job.sync({force: true}).then(function () {
 //   // Table created
-//   console.log("table created i hope")
+//   console.log("Table successfully created")
 // });
 module.exports = Job;
