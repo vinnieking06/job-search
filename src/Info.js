@@ -1,6 +1,5 @@
 import React from 'react';
 const Info = (props) => {
-    console.log(props)
     return (
         <div>
             <h4>Company: {props.job.company} </h4>
