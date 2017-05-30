@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const path = require('path');
-const Job = require('./db')
+const db = require('./db');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
@@ -23,9 +23,9 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
-app.post("/jobs", (req,res) => {
+app.post("/jobs", (req, res) => {
     const job = req.body;
-    Job.create({
+    db.Job.create({
         company: job.company,
         job: job.job,
         link: job.link,
@@ -35,9 +35,18 @@ app.post("/jobs", (req,res) => {
     })
 })
 
-app.get("/jobs", (req,res) => {
-    Job.findAll().then((data) => {
+app.get("/jobs", (req, res) => {
+    db.Job.findAll().then((data) => {
         res.json(data)
+    })
+})
+
+app.post("/activity", (req, res) => {
+    db.Activity.create({
+        jobId: req.body.jobid,
+        content: req.body.content
+    }).then(function(data){
+        res.send(data)
     })
 })
 

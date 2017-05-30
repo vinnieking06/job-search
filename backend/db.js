@@ -25,9 +25,31 @@ const Job = sequelize.define('job', {
         type: Sequelize.STRING
       }
 });
+
+const Activity = sequelize.define('activity', {
+      jobid: {
+        type: Sequelize.INTEGER
+      },
+      content: {
+        type: Sequelize.STRING
+      }
+})
+
+Activity.belongsTo(Job);
+Job.hasMany(Activity);
 //creates database I only need this the first 
+Activity.sync({force: true}).then(function () {
+  // Table created
+  console.log("Activity successfully created")
+});
+
 // Job.sync({force: true}).then(function () {
 //   // Table created
-//   console.log("Table successfully created")
+//   console.log("Job successfully created")
 // });
-module.exports = Job;
+
+const db = {};
+db.Job = Job;
+db.Activity = Activity;
+
+module.exports = db;
