@@ -36,14 +36,21 @@ app.post("/jobs", (req, res) => {
 })
 
 app.get("/jobs", (req, res) => {
-    db.Job.findAll().then((data) => {
-        res.json(data)
-    })
+    db.Job.findAll({
+        include: [
+            {
+            model: db.Activity
+            }
+        ]
+        }).then((data) => {
+            res.send(data)
+        })
+
 })
 
 app.post("/activity", (req, res) => {
     db.Activity.create({
-        jobId: req.body.jobid,
+        jobId: req.body.jobId,
         content: req.body.content
     }).then(function(data){
         res.send(data)

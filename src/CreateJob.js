@@ -4,7 +4,7 @@ import axios from 'axios';
 class CreateJob extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {company: '', job: '', link: '', notes: '',};
+        this.state = {company: '', job: '', link: '', notes: ''};
 
         this.handleCompany = this.handleCompany.bind(this);
         this.handleJob = this.handleJob.bind(this);

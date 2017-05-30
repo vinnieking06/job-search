@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 class JobList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            jobs: []
-        };
+        this.state = {jobs: [], currentJob: ""};
     }
 
     componentDidMount() {

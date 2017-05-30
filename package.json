@@ -51,6 +51,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
+    "local": "nodemon node ./backend/server.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
