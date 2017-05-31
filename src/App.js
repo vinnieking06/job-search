@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import TopBar from './TopBar';
 import JobList from './JobList'
+import JobListContainer from './JobListContainer'
+
 
 class App extends Component {
 
@@ -10,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <TopBar />
-        <JobList />
+        <JobListContainer />
       </div>
     );
   }

@@ -3,20 +3,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class JobList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {jobs: [], currentJob: ""};
-    }
-
-    componentDidMount() {
-        axios.get('http://localhost:3000/jobs').then(res => {
-            this.setState({jobs: res.data})
-      })
-    }
 
     render() {
+        console.log(this.props)
         const jobList = [];
-        this.state.jobs.forEach((job, index) => {
+        this.props.jobs.forEach((job, index) => {
             jobList.push(<li key={index}> 
                 <Link to={{ pathname: `/job/${job.id}`, state: { job: job } }}>
                     <div>{job.job} {job.company} {job.link}</div>
