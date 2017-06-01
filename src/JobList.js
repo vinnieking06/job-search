@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 class JobList extends React.Component {
 
     render() {
-        console.log(this.props)
+        console.log(this.props);
+        
         const jobList = [];
         this.props.jobs.forEach((job, index) => {
             jobList.push(<li key={index}> 
-                <Link to={{ pathname: `/job/${job.id}`, state: { job: job } }}>
+                <Link onClick={()=>{this.props.updateJob(job)}} to={{ pathname: `/job/${job.id}`, state: { job: job } }}>
                     <div>{job.job} {job.company} {job.link}</div>
                 </Link>
              </li>)

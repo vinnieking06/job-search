@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 class JobListContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {jobs: [], currentJob: ""};
+        this.state = {jobs: [], currentJob: "", showLogActivity: false};
         this.updateJob = this.updateJob.bind(this);
     }
 
@@ -23,7 +23,7 @@ class JobListContainer extends React.Component {
     render() {
         return (
             <div className="job-list">
-               <JobList updateJob={this.updateJob} jobs={this.state.jobs} />
+               <JobList updateJob={this.updateJob} currentJob={this.state.currentJob} jobs={this.state.jobs} />
             </div>
         )
     }
