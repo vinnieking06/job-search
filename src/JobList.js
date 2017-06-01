@@ -1,12 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class JobList extends React.Component {
 
     render() {
-        console.log(this.props);
-        
+                
         const jobList = [];
         this.props.jobs.forEach((job, index) => {
             jobList.push(<li key={index}> 

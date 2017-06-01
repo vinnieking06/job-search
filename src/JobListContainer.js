@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import JobList from './JobList'
-import { Link } from 'react-router-dom';
 
 class JobListContainer extends React.Component {
     constructor(props) {

@@ -18,7 +18,6 @@ class Job extends React.Component {
     }
 
     getJob(id, jobs) {
-        console.log("id", id, jobs)
         let finalJob;
         jobs.forEach((item) => {
             if (item.id == id){
@@ -26,23 +25,19 @@ class Job extends React.Component {
             }
         })
         return finalJob;
-
     }
    
    componentWillMount() {
     axios.get('http://localhost:3000/jobs').then(res => {
-        console.log(res.data)
       const jobId = this.props.match.params.id;
       const newJob = this.getJob(jobId, res.data)
-      console.log("state", this.state, newJob);
       this.setState({jobs: res.data, currentJob: newJob})
       })
-
    }
+
     render(){
 
         const job = this.state.currentJob;
-        console.log("this is ", job)
 
         if (this.state.showLogActivity) {
             return (  
@@ -67,7 +62,7 @@ class Job extends React.Component {
                     <Activity />
                     <FollowUp />
                 </div>
-        )
+            )
         }
         
     
