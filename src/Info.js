@@ -22,7 +22,7 @@ class Info extends React.Component{
                         <p>Notes: {this.props.job.notes}</p>
                         <button onClick={this.toggleLogActivity}>Log Activity</button>
                         <button>Set Follow Up</button>
-                        <LogActivity toggleLogActivity={this.toggleLogActivity} jobId={this.props.job} />
+                        <LogActivity toggleLogActivity={this.toggleLogActivity} job={this.props.job} />
                     </div>
                 );
         }

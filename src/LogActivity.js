@@ -15,7 +15,7 @@ class LogActivity extends React.Component {
     }
 
     handleSubmit(event) {
-        const postData = {jobId: this.props.jobId, content: this.state.content}
+        const postData = {jobId: this.props.job.id, content: this.state.content}
         axios.post('http://localhost:3000/activity', postData)
         .then(function(response){
             this.props.toggleLogActivity();

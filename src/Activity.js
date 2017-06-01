@@ -6,10 +6,9 @@ const Activity = (props) => {
     console.log("activities", activities)
 
     const activityList = activities.map((item, index) => {
-       return <li key={index}>{item.content} </li>
+       return <li key={index}>{item.content}{" "}{item.createdAt} </li>
     })
     
-
     return (
         <div>
             Past Activity:

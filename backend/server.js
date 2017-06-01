@@ -49,6 +49,7 @@ app.get("/jobs", (req, res) => {
 })
 
 app.post("/activity", (req, res) => {
+    console.log(req.body)
     db.Activity.create({
         jobId: req.body.jobId,
         content: req.body.content
