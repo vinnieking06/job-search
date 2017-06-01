@@ -27,7 +27,7 @@ class Job extends React.Component {
                 </Link> <h1>Job View</h1>
                     <Info toggleLogActivity={this.toggleLogActivity} job={job} />
                     <Activity job={job} />
-                    <FollowUp />
+                    <FollowUp followups={job.followups} />
                 </div>
             )
         

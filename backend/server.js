@@ -39,21 +39,32 @@ app.get("/jobs", (req, res) => {
     db.Job.findAll({
         include: [
             {
-            model: db.Activity
+                model: db.Activity
+            },
+            {
+                model: db.FollowUp
             }
         ]
         }).then((data) => {
             res.send(data)
         })
-
 })
 
 app.post("/activity", (req, res) => {
-    console.log(req.body)
     db.Activity.create({
         jobId: req.body.jobId,
         content: req.body.content
     }).then(function(data){
+        res.send(data)
+    })
+})
+
+app.post("/followup", (req, res) => {
+    db.FollowUp.create({
+        jobId: req.body.jobId,
+        content: req.body.content,
+        duedate: req.body.dueDate
+    }).then((data) =>{
         res.send(data)
     })
 })

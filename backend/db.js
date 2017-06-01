@@ -35,8 +35,28 @@ const Activity = sequelize.define('activity', {
       }
 })
 
+const FollowUp = sequelize.define('followup', {
+      jobId: {
+        type: Sequelize.INTEGER
+      },
+      content: {
+        type: Sequelize.STRING
+      },
+      completed: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      duedate: {
+        type: Sequelize.DATE
+      }
+})
+
 Activity.belongsTo(Job);
 Job.hasMany(Activity);
+
+FollowUp.belongsTo(Job);
+Job.hasMany(FollowUp);
+
 
 //creates database I only need this the first 
 
@@ -50,8 +70,14 @@ Job.hasMany(Activity);
 //   console.log("Job successfully created")
 // });
 
+// FollowUp.sync({force: true}).then(function () {
+//   // Table created
+//   console.log("FollowUp successfully created")
+// });
+
 const db = {};
 db.Job = Job;
 db.Activity = Activity;
+db.FollowUp = FollowUp;
 
 module.exports = db;
