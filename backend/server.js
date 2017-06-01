@@ -30,8 +30,8 @@ app.post("/jobs", (req, res) => {
         job: job.job,
         link: job.link,
         notes: job.notes
-    }).then(() => {
-        res.end()
+    }).then((data) => {
+        res.send(data)
     })
 })
 

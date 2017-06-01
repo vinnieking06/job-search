@@ -25,11 +25,12 @@ class CreateJob extends React.Component {
         this.setState({notes: event.target.value});
     }
 
-    handleSubmit(event) {
-        axios.post('http://localhost:3000/jobs', this.state)
-        .then(function(response){
-            console.log('saved successfully')
-        });
+    handleSubmit() {
+        const postData = this.state;
+        axios.post('http://localhost:3000/jobs', postData)
+        .then(() => {
+            this.props.history.push('/')
+        })
     }
   render() {
       
@@ -38,13 +39,11 @@ class CreateJob extends React.Component {
             <h2>Create Job</h2>
             <p>Enter the basic information to create the opportunity</p>
             <div>
-                <form onSubmit={this.handleSubmit}>
                     Company name:<input type="text" value={this.state.value} onChange={this.handleCompany} />
                     Job Title: <input type="text" value={this.state.value} onChange={this.handleJob} /> <br/>
                     Link: <input type="text" value={this.state.value} onChange={this.handleLink} /> <br/>
                     Notes:<br/> <textarea value={this.state.value} onChange={this.handleNotes}  name="" id="" cols="30" rows="10"></textarea>
-                    <button type="submit" >create</button>
-                </form>
+                    <button onClick={this.handleSubmit} type="submit" >create</button>
             </div>
         </div>
     )

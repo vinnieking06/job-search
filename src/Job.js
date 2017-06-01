@@ -2,9 +2,7 @@ import React from 'react';
 import Info from './Info';
 import Activity from './Activity';
 import FollowUp from './FollowUp';
-import LogActivity from './LogActivity';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 
 
 class Job extends React.Component {
